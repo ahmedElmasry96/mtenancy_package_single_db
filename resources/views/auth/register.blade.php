@@ -16,6 +16,14 @@
             <x-input-error :messages="$errors->get('email')" class="mt-2" />
         </div>
 
+        @if(Request::getHost() == 'localhost')
+            <div class="mt-4">
+                <x-input-label for="tenant" :value="__('Tenant')" />
+                <x-text-input id="tenant" class="block mt-1 w-full" type="text" name="tenant" :value="old('tenant')" required autocomplete="username" />
+                <x-input-error :messages="$errors->get('tenant')" class="mt-2" />
+            </div>
+        @endif
+
         <!-- Password -->
         <div class="mt-4">
             <x-input-label for="password" :value="__('Password')" />
